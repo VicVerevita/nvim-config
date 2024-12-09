@@ -8,6 +8,7 @@ return {
   -- Color preview for working with hex colors
   { 'rrethy/vim-hexokinase' },
   -- Theming / add themes here change from init.lua
+  { 'catppuccin/nvim' },
   { 'sainnhe/sonokai' },
   { 'folke/tokyonight.nvim' },
   --Status line
