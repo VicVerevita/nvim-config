@@ -2,6 +2,8 @@ require("theprimeagen.set")
 require("theprimeagen.remap")
 require("theprimeagen.lazy_init")
 
+vim.diagnostic.reset()
+
 -- DO.not
 -- DO NOT INCLUDE THIS
 
@@ -22,6 +24,8 @@ local yank_group = augroup('HighlightYank', {})
 function R(name)
     require("plenary.reload").reload_module(name)
 end
+
+ColorMyPencils();
 
 vim.filetype.add({
     extension = {
@@ -66,3 +70,37 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+--local M = {}
+
+-- M.start = function()
+--  vim.lsp.set_log_level 'debug'
+--  require('vim.lsp.log').set_format_func(vim.inspect)
+--
+--  local client, err = vim.lsp.start {
+--    name = 'surrealql-lsp-server',
+--    cmd = { 'surrealql-lsp-server' },  -- No need for full path now
+--  }
+--
+--  if not client then
+--    vim.notify('Failed to start surrealql-lsp-server: ' .. tostring(err), vim.log.levels.ERROR)
+--    return
+--  end
+--
+--  vim.lsp.buf_attach_client(0, client)
+--end
+--
+--local group = vim.api.nvim_create_namespace 'surrealql-lsp-server'
+--
+--M.setup = function()
+--  vim.api.nvim_clear_autocmds { group = group }
+--
+--  vim.api.nvim_create_autocmd('FileType', {
+--    group = group,
+--    pattern = 'surql',
+--    callback = M.start,
+--  })
+--end
+--
+--M.setup()
+--M.start()
